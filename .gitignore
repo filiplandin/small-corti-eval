@@ -20,5 +20,4 @@ v1/
 expert-eval/results/
 expert-eval/V2_AUDIT.md
 expert-eval/combine_reports.py
-expert-eval/summarize_usage.py
 expert-eval/swebench-verified/

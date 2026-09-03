@@ -30,6 +30,7 @@ expert-eval/
   tests/           Harness regression tests
   run.py           Isolated and resumable benchmark runner
   report.py        Per-run Markdown report generator
+  summarize_usage.py  Token and cost summary from agent logs
   validate_suite.py
 ```
 
@@ -81,6 +82,15 @@ python3 expert-eval/run.py corti \
 Results are written to `expert-eval/results/<run-id>/` and are intentionally
 excluded from version control.
 
+Summarize reported token usage and cost for one or more runs:
+
+```bash
+python3 expert-eval/summarize_usage.py \
+  expert-eval/results/<run-id> [expert-eval/results/<another-run-id>]
+```
+
+Pass `--json` for machine-readable output.
+
 ## Scope
 
 This is an end-to-end product comparison. Corti and GLM share the OpenCode
@@ -91,7 +101,3 @@ configuration and authentication.
 Suite `v2.1` accepts either `TypeError` or `ValueError` when tasks 9 and 10
 reject invalid arguments. This is explicit in the prompts, public tests, and
 hidden graders.
-
-Publishing graders and reference solutions makes the tasks unsuitable as
-secret future benchmark items. Use this repository for reproducibility and
-technical review, and use new private tasks for contamination-sensitive runs.
